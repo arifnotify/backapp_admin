@@ -5,20 +5,26 @@ export default function Home() {
   const [price, setPrice] = useState("");
 
   const addProduct = async () => {
-    await fetch("https://backapp-pkmg.onrender.com/products", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, price: Number(price) }),
-    });
+    await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/products`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          price: Number(price),
+        }),
+      }
+    );
 
-    alert("Product Added");
+    alert("Added");
   };
 
   return (
     <div style={{ padding: 20 }}>
-      <h1>Add Product</h1>
+      <h2>Add Product</h2>
 
       <input
         placeholder="Name"
