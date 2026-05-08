@@ -5,7 +5,7 @@ export default function Home() {
   const [price, setPrice] = useState("");
 
   const addProduct = async () => {
-    await fetch("https://backapp-pkmg.onrender.com", {
+    await fetch("https://backapp-pkmg.onrender.com/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
